@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>북막골 - Bookmakgol Location</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom, #f5f1ea 0%, #e8e3da 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: #3d3d3d;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #2d2d2d;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .lang-btn {
+            background: white;
+            border: 2px solid #d4cfc7;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #5a5a5a;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #a89880;
+        }
+        
+        .lang-btn.active {
+            background: #8b7355;
+            color: white;
+            border-color: #8b7355;
+        }
+        
+        .branch-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #f0ebe5;
+        }
+        
+        .branch-title {
+            font-size: 1.2em;
+            color: #8b7355;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f1ea;
+        }
+        
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fafaf8;
+            border-radius: 10px;
+            border-left: 3px solid #d4cfc7;
+        }
+        
+        .icon {
+            font-size: 1.4em;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #4a4a4a;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        
+        .info-text {
+            color: #6b6b6b;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .parking-yes {
+            color: #5a8f5a;
+            font-weight: bold;
+        }
+        
+        .parking-no {
+            color: #c17a7a;
+            font-weight: bold;
+        }
+        
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .map-btn {
+            background: #8b7355;
+            color: white;
+        }
+        
+        .map-btn:hover {
+            background: #72604a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+        }
+        
+        .call-btn {
+            background: #4a4a4a;
+            color: white;
+        }
+        
+        .call-btn:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 74, 74, 0.3);
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍖 북막골 | Bookmakgol 🍖</h1>
+        </div>
+        
+        <div class="language-selector">
+            <button class="lang-btn active" onclick="setLanguage('ko')">한국어</button>
+            <button class="lang-btn" onclick="setLanguage('th')">ไทย</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+        </div>
+        
+        <!-- Ekamai Branch -->
+        <div class="branch-card">
+            <div class="branch-title" data-lang-ko="🚇 에카마이 지점" data-lang-th="🚇 สาขาเอกมัย" data-lang-en="🚇 Ekamai Branch">🚇 에카마이 지점</div>
+            
+            <div class="info-row">
+                <div class="icon">🕐</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="영업시간" data-lang-th="เวลาเปิดให้บริการ" data-lang-en="Opening Hours">영업시간</div>
+                    <div class="info-text">11:00 - 15:00<br>(Break 1 hr)<br>16:00 - 22:00</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">📞</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="전화번호" data-lang-th="โทรศัพท์" data-lang-en="Phone">전화번호</div>
+                    <div class="info-text">095-868-6826</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">🚗</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="주차" data-lang-th="ที่จอดรถ" data-lang-en="Parking">주차</div>
+                    <div class="info-text parking-no" data-lang-ko="주차 불가 ❌" data-lang-th="ไม่มีที่จอดรถ ❌" data-lang-en="No Parking ❌">주차 불가 ❌</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">📍</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="위치" data-lang-th="ที่อยู่" data-lang-en="Location">위치</div>
+                    <div class="info-text" data-lang-ko="에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전" data-lang-th="Ekamai BTS ทางออก 4<br>ตรงข้าม รพ.สุขุมวิท<br>ก่อนถึงเกตเวย์ เอกมัย" data-lang-en="Ekamai BTS Exit 4<br>Opposite Sukhumvit Hospital<br>Before Gateway Ekamai">에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전</div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <a href="https://maps.app.goo.gl/VMFVhGP4K1YAuJzK7" target="_blank" class="action-btn map-btn">
+                    <span>🗺️</span>
+                    <span data-lang-ko="길찾기" data-lang-th="นำทาง" data-lang-en="Directions">길찾기</span>
+                </a>
+                <a href="tel:+66958686826" class="action-btn call-btn">
+                    <span>📞</span>
+                    <span data-lang-ko="전화하기" data-lang-th="โทร" data-lang-en="Call">전화하기</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Phrom Phong Branch -->
+        <div class="branch-card">
+            <div class="branch-title" data-lang-ko="🏨 프롬퐁 지점" data-lang-th="🏨 สาขาพร้อมพงษ์" data-lang-en="🏨 Phrom Phong Branch">🏨 프롬퐁 지점</div>
+            
+            <div class="info-row">
+                <div class="icon">🕐</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="영업시간" data-lang-th="เวลาทำการ" data-lang-en="Opening Hours">영업시간</div>
+                    <div class="info-text">11:00 - 15:00<br>(Break 1 hr)<br>16:00 - 22:00</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">📞</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="전화번호" data-lang-th="โทรศัพท์" data-lang-en="Phone">전화번호</div>
+                    <div class="info-text">02-115-5500</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">🚗</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="주차" data-lang-th="ที่จอดรถ" data-lang-en="Parking">주차</div>
+                    <div class="info-text parking-yes" data-lang-ko="주차 가능 (무료) ✅" data-lang-th="มีที่จอดรถฟรี ✅" data-lang-en="Free Parking ✅">주차 가능 (무료) ✅</div>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <div class="icon">📍</div>
+                <div class="info-content">
+                    <div class="info-label" data-lang-ko="위치" data-lang-th="ที่อยู่" data-lang-en="Location">위치</div>
+                    <div class="info-text" data-lang-ko="수쿰윗 소이 24<br>아리스톤 호텔 1층<br>호텔 내 무료 주차" data-lang-th="ซอยสุขุมวิท 24<br>ชั้น 1 โรงแรมอะริสตั้น<br>จอดรถฟรีในโรงแรม" data-lang-en="Sukhumvit Soi 24<br>Ariston Hotel 1st Floor<br>Free parking in hotel">수쿰윗 소이 24<br>아리스톤 호텔 1층<br>호텔 내 무료 주차</div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <a href="https://maps.app.goo.gl/gdz7WdhHin9KVLb66" target="_blank" class="action-btn map-btn">
+                    <span>🗺️</span>
+                    <span data-lang-ko="길찾기" data-lang-th="นำทาง" data-lang-en="Directions">길찾기</span>
+                </a>
+                <a href="tel:+6621155500" class="action-btn call-btn">
+                    <span>📞</span>
+                    <span data-lang-ko="전화하기" data-lang-th="โทร" data-lang-en="Call">전화하기</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentLang = 'ko';
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-lang-ko]').forEach(element => {
+                const text = element.getAttribute(`data-lang-${lang}`);
+                if (text) {
+                    element.innerHTML = text;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
