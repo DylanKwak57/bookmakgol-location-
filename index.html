@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(to bottom, #f5f1ea 0%, #e8e3da 100%);
+            background: linear-gradient(to bottom, #b0b0b0 0%, #9a9a9a 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,10 +25,10 @@
         
         .header {
             text-align: center;
-            color: #3d3d3d;
+            color: #2d2d2d;
             margin-bottom: 30px;
             padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 20px;
             backdrop-filter: blur(10px);
         }
@@ -50,45 +50,45 @@
         }
         
         .lang-btn {
-            background: white;
-            border: 2px solid #d4cfc7;
+            background: #4a4a4a;
+            border: 2px solid #4a4a4a;
             padding: 10px 20px;
             border-radius: 10px;
             font-size: 15px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
-            color: #5a5a5a;
+            color: white;
         }
         
         .lang-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border-color: #a89880;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: #3a3a3a;
         }
         
         .lang-btn.active {
-            background: #8b7355;
+            background: #2d2d2d;
             color: white;
-            border-color: #8b7355;
+            border-color: #2d2d2d;
         }
         
         .branch-card {
-            background: white;
+            background: #e8e8e8;
             border-radius: 16px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #f0ebe5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 1px solid #d0d0d0;
         }
         
         .branch-title {
             font-size: 1.2em;
-            color: #8b7355;
+            color: #2d2d2d;
             margin-bottom: 20px;
             font-weight: bold;
             padding-bottom: 15px;
-            border-bottom: 2px solid #f5f1ea;
+            border-bottom: 2px solid #c8c8c8;
         }
         
         .info-row {
@@ -96,9 +96,9 @@
             align-items: flex-start;
             margin-bottom: 15px;
             padding: 12px;
-            background: #fafaf8;
+            background: #d8d8d8;
             border-radius: 10px;
-            border-left: 3px solid #d4cfc7;
+            border-left: 3px solid #a0a0a0;
         }
         
         .icon {
@@ -113,13 +113,13 @@
         
         .info-label {
             font-weight: 600;
-            color: #4a4a4a;
+            color: #3a3a3a;
             margin-bottom: 5px;
             font-size: 0.95em;
         }
         
         .info-text {
-            color: #6b6b6b;
+            color: #5a5a5a;
             line-height: 1.6;
             font-size: 0.95em;
         }
@@ -157,25 +157,27 @@
         }
         
         .map-btn {
-            background: #8b7355;
+            background: #4a4a4a;
             color: white;
+            border: 1px solid #4a4a4a;
         }
         
         .map-btn:hover {
-            background: #72604a;
+            background: #3a3a3a;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .call-btn {
             background: #4a4a4a;
             color: white;
+            border: 1px solid #4a4a4a;
         }
         
         .call-btn:hover {
-            background: #333333;
+            background: #3a3a3a;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(74, 74, 74, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .hidden {
@@ -227,12 +229,12 @@
                 <div class="icon">📍</div>
                 <div class="info-content">
                     <div class="info-label" data-lang-ko="위치" data-lang-th="ที่อยู่" data-lang-en="Location">위치</div>
-                    <div class="info-text" data-lang-ko="에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전" data-lang-th="Ekamai BTS ทางออก 4<br>ตรงข้าม รพ.สุขุมวิท<br>ก่อนถึงเกตเวย์ เอกมัย" data-lang-en="Ekamai BTS Exit 4<br>Opposite Sukhumvit Hospital<br>Before Gateway Ekamai">에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전</div>
+                    <div class="info-text" data-lang-ko="에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전" data-lang-th="Ekamai BTS ทางออก 4<br>ตรงข้าม รพ.สุขุมวิท<br>ก่อนถึงเกตเวย์ เอกมัย" data-lang-en="Ekamai BTS Exit 4<br>On the same side of Gateway Ekamai and across from Sukhumvit Hospital.">에카마이 BTS 4번 출구<br>수쿰윗 병원 맞은편<br>게이트웨이 에카마이 전</div>
                 </div>
             </div>
             
             <div class="btn-group">
-                <a href="https://maps.app.goo.gl/VMFVhGP4K1YAuJzK7" target="_blank" class="action-btn map-btn">
+                <a href="https://maps.app.goo.gl/VMFVhGP4K1YAuJzK7" class="action-btn map-btn">
                     <span>🗺️</span>
                     <span data-lang-ko="길찾기" data-lang-th="นำทาง" data-lang-en="Directions">길찾기</span>
                 </a>
@@ -250,7 +252,7 @@
             <div class="info-row">
                 <div class="icon">🕐</div>
                 <div class="info-content">
-                    <div class="info-label" data-lang-ko="영업시간" data-lang-th="เวลาทำการ" data-lang-en="Opening Hours">영업시간</div>
+                    <div class="info-label" data-lang-ko="영업시간" data-lang-th="เวลาเปิดให้บริการ" data-lang-en="Opening Hours">영업시간</div>
                     <div class="info-text">11:00 - 15:00<br>(Break 1 hr)<br>16:00 - 22:00</div>
                 </div>
             </div>
@@ -280,7 +282,7 @@
             </div>
             
             <div class="btn-group">
-                <a href="https://maps.app.goo.gl/gdz7WdhHin9KVLb66" target="_blank" class="action-btn map-btn">
+                <a href="https://maps.app.goo.gl/gdz7WdhHin9KVLb66" class="action-btn map-btn">
                     <span>🗺️</span>
                     <span data-lang-ko="길찾기" data-lang-th="นำทาง" data-lang-en="Directions">길찾기</span>
                 </a>
